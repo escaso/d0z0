@@ -6,7 +6,7 @@ Start by `ssh`-ing, but do not `source` yet. Before running these files, you wil
 ## `gun.py`
 `gun.py` generates input gun samples and runs the HEPMC3 gun on them. As it is right now, `gun.py` is formatted to produce a single particle muon gun at different theta ranges and run these guns on different momentum ranges. Consequently, adjust the following parameters:
 - Below the imports section:
-  - set `d0z0_path` to be the global path to the directory that was created by cloning this repository.
+  - Set `d0z0_path` to be the global path to the directory that was created by cloning this repository.
 - In `__main__`:
   - `theta_ranges`: These are the theta values at which the single particle gun will be shot at.
   - `mom_ranges`: These are the momentum values which the particles will move at.
@@ -17,9 +17,22 @@ Start by `ssh`-ing, but do not `source` yet. Before running these files, you wil
 ## `d0z0.py`
 `d0z0.py` generates the detector response to these events, analyzes the results, and plots this analysis. To be adjusted:
 - Below the imports section:
-  - again, set `d0z0_path` to be the global path to the directory that was created by cloning this repository.
-  - also set `ceph_path` to be the global path to your ceph directory, or any other directory with sufficient storage for the files created. It is computationally cheaper to store these files rather than recreate them each time.
+  - Again, set `d0z0_path` to be the global path to the directory that was created by cloning this repository.
+  - Also set `ceph_path` to be the global path to your ceph directory, or any other directory with sufficient storage for the files created. It is computationally cheaper to store these files rather than recreate them each time.
 - In `__main__`:
   - If you are running different iterations of the same geometry configuration but changing only one parameter, you can set the name of the parameter in `subsystem` (string), the layer you are changing in `layer` (int) and its value in `radius` (float). These parameters are necessary when planning to run `r_vs_res.py` but unnecessary otherwise.
     - For example, if you want to study the relationship of the first layer of the IDEA vertex detector inner barrel layer 1 and the d0/z0 resolution, the `subsystem` will be `"VTXIB"`, the `layer` will be `1`, and the `radius` will be `11.7`, `13.7`, `15.7`, etc.
   - Alternatively, if you will not be running `r_vs_res.py`, you can leave `layer = -1` and `radius = -1`. You can still take advantage of the `.json` file created by specifying what kind of analysis you are performing in `subsystem`. For example, `"long_barrel"`, `"short_barrel"`, etc.
+
+## `plot_ratios.py`
+`plot_ratios.py` plots both the individual d0/z0 resolution vs. the different theta values from your `theta_ranges` and the resolution ratio against your default detector (normally `IDEA_base25`).
+- In `__main__`:
+  - Set `d0z0_path` to be the global path to the directory that was created by cloning this repository.
+  - Set the parameter occupied by `"inside_pipe"` in `detector_path = os.path.join(d0z0_path, "inside_pipe")` to be the name of the folder inside your `d0z0_path` that holds your analysis files. The idea is to have different folders for different kinds of studies, e.g. `"long_barrel"`, `"short_barrel"`.
+
+## `r_vs_res.py`
+`r_vs_res.py` plots both the individual d0/z0 resolution vs. the different theta values from your `theta_ranges` and the resolution ratio against your default detector (normally `IDEA_base25`).
+- In `__main__`:
+  - Set `d0z0_path` to be the global path to the directory that was created by cloning this repository.
+  - Set the parameter occupied by `"inside_pipe"` in `detector_path = os.path.join(d0z0_path, "inside_pipe")` to be the name of the folder inside your `d0z0_path` that holds your analysis files. The idea is to have different folders for different kinds of studies, e.g. `"long_barrel"`, `"short_barrel"`.
+
