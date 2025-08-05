@@ -1,6 +1,40 @@
 # d0 and z0 analysis
 The files in this directory provide the tools for a d0 and z0 analysis of particle guns in Delphes.
 
+## RUNNING THE ANALYSIS
+
+1. Start by `ssh`-ing, **but do not `source` yet**. Before running these files, you will have to make some changes in terms of directory paths. Necessary changes are specified below.
+
+2. Make the necessary changes to `gun.py`. Then,
+
+```console
+python gun.py
+```
+
+3. Add whatever cards you will run on to `delphes/cards`.
+
+4. Make the necessary changes to `d0z0.py`. Then,
+```console
+python d0z0.py
+```
+
+5. Now, `source` before running `plot_ratios.py` and/or `r_vs_res.py`.  
+```console
+source /cvmfs/sw.hsf.org/key4hep/setup.sh -r 2025-05-29
+python plot_ratios.py -d IDEA_VTXIB_r1_117 IDEA_VTXIB_r1_157 -p res_quantile
+```
+  - Note: Possible arguments for `-p`, which specifies the resolution parameter to be plotted, will be displayed if you run
+
+```console
+python plot_ratios.py -dis
+```
+  - Optional:
+
+```console
+source /cvmfs/sw.hsf.org/key4hep/setup.sh -r 2025-05-29
+python r_vs_res.py -d IDEA_VTXIB_r1_117 IDEA_VTXIB_r1_157 -p res_quantile
+```
+
 ## `gun.py`
 `gun.py` generates input gun samples and runs the HEPMC3 gun on them. As it is right now, `gun.py` is formatted to produce a single particle muon gun at different theta ranges and run these guns on different momentum ranges. Consequently, adjust the following parameters:
 - Below the imports section:
@@ -36,38 +70,3 @@ The files in this directory provide the tools for a d0 and z0 analysis of partic
 
 ## `delphes/cards`
 `delphes/cards` is where your detector cards are stored.
-
-## RUNNING THE ANALYSIS
-
-1. Start by `ssh`-ing, **but do not `source` yet**. Before running these files, you will have to make some changes in terms of directory paths.
-
-2. Make the necessary changes to `gun.py`. Then,
-
-```console
-python gun.py
-```
-
-3. Add whatever cards you will run on to `delphes/cards`.
-
-4. Make the necessary changes to `d0z0.py`. Then,
-```console
-python d0z0.py
-```
-
-5. Now, `source` before running `plot_ratios.py` and/or `r_vs_res.py`.  
-```console
-source /cvmfs/sw.hsf.org/key4hep/setup.sh -r 2025-05-29
-python plot_ratios.py -d IDEA_VTXIB_r1_117 IDEA_VTXIB_r1_157 -p res_quantile
-```
-  - Note: Possible arguments for `-p`, which specifies the resolution parameter to be plotted, will be displayed if you run
-
-```console
-python plot_ratios.py -dis
-```
-  - Optional:
-
-```console
-source /cvmfs/sw.hsf.org/key4hep/setup.sh -r 2025-05-29
-python r_vs_res.py -d IDEA_VTXIB_r1_117 IDEA_VTXIB_r1_157 -p res_quantile
-```
-
