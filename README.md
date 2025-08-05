@@ -43,14 +43,12 @@ The files in this directory provide the tools for a d0 and z0 analysis of partic
 
 2.Make the necessary changes to `gun.py`. Then,
 
-```python gun.py
-```
+```python gun.py```
 
 3.Add whatever cards you will run on to `delphes/cards`.
 
 4.Make the necessary changes to `d0z0.py`. Then,
-```python d0z0.py
-```
+```python d0z0.py```
 
 5.Now, `source` before running `plot_ratios.py` and/or `r_vs_res.py`.  
 ```source /cvmfs/sw.hsf.org/key4hep/setup.sh -r 2025-05-29
