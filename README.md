@@ -1,8 +1,6 @@
 # d0 and z0 analysis
 The files in this directory provide the tools for a d0 and z0 analysis of particle guns in Delphes.
 
-Start by `ssh`-ing, but do not `source` yet. Before running these files, you will have to make some changes in terms of directory paths.
-
 ## `gun.py`
 `gun.py` generates input gun samples and runs the HEPMC3 gun on them. As it is right now, `gun.py` is formatted to produce a single particle muon gun at different theta ranges and run these guns on different momentum ranges. Consequently, adjust the following parameters:
 - Below the imports section:
@@ -36,3 +34,29 @@ Start by `ssh`-ing, but do not `source` yet. Before running these files, you wil
   - Set `d0z0_path` to be the global path to the directory that was created by cloning this repository.
   - Set the parameter occupied by `"inside_pipe"` in `detector_path = os.path.join(d0z0_path, "inside_pipe")` to be the name of the folder inside your `d0z0_path` that holds your analysis files. The idea is to have different folders for different kinds of studies, e.g. `"long_barrel"`, `"short_barrel"`.
 
+## `delphes/cards`
+`delphes/cards` is where your detector cards are stored.
+
+## RUNNING THE ANALYSIS
+
+Start by `ssh`-ing, **but do not `source` yet**. Before running these files, you will have to make some changes in terms of directory paths.
+
+Make the necessary changes to `gun.py`. Then,
+
+```python gun.py```
+
+Add whatever cards you will run on to `delphes/cards`.
+
+Make the necessary changes to `d0z0.py`. Then,
+```python d0z0.py```
+
+Now, `source` before running `plot_ratios.py` and/or `r_vs_res.py`.  
+```source /cvmfs/sw.hsf.org/key4hep/setup.sh -r 2025-05-29
+python plot_ratios.py -d IDEA_VTXIB_r1_117 IDEA_VTXIB_r1_157 -p res_quantile
+```
+Optional: 
+```source /cvmfs/sw.hsf.org/key4hep/setup.sh -r 2025-05-29
+python r_vs_res.py -d IDEA_VTXIB_r1_117 IDEA_VTXIB_r1_157 -p res_quantile
+```
+Note: Possible arguments for `-p`, which specifies the resolution parameter to be plotted, will be displayed if you run 
+```python plot_ratios.py -dis```
