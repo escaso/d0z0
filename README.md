@@ -5,14 +5,21 @@ Start by `ssh`-ing, but do not `source` yet. Before running these files, you wil
 
 ## `gun.py`
 `gun.py` generates input gun samples and runs the HEPMC3 gun on them. As it is right now, `gun.py` is formatted to produce a single particle muon gun at different theta ranges and run these guns on different momentum ranges. Consequently, adjust the following parameters:
-  - Below the imports section:
-    - set `d0z0_path` to be the global path to the directory that was created by cloning this repository.
-      
-  - In `__main__`:
-    - `theta_ranges`: These are the theta values at which the single particle gun will be shot at.
-    - `mom_ranges`: These are the momentum values which the particles will move at.
-    - `particle_id`: Select which particle you want to shoot. In this case, `13` is for anti-muon. You can find a pdg dictionary at the top of the file.
-    - `nevents`: Number of events generated per theta value, per momentum value.
-    - `npart`: Number of particles contained in each event.
+- Below the imports section:
+  - set `d0z0_path` to be the global path to the directory that was created by cloning this repository.
+- In `__main__`:
+  - `theta_ranges`: These are the theta values at which the single particle gun will be shot at.
+  - `mom_ranges`: These are the momentum values which the particles will move at.
+  - `particle_id`: Select which particle you want to shoot. In this case, `13` is for anti-muon. You can find a pdg dictionary at the top of the file.
+  - `nevents`: Number of events generated per theta value, per momentum value.
+  - `npart`: Number of particles contained in each event.
       
 ## `d0z0.py`
+`d0z0.py` generates the detector response to these events, analyzes the results, and plots this analysis. To be adjusted:
+- Below the imports section:
+  - again, set `d0z0_path` to be the global path to the directory that was created by cloning this repository.
+  - also set `ceph_path` to be the global path to your ceph directory, or any other directory with sufficient storage for the files created. It is computationally cheaper to store these files rather than recreate them each time.
+- In `__main__`:
+  - If you are running different iterations of the same geometry configuration but changing only one parameter, you can set the name of the parameter in `subsystem` (string), the layer you are changing in `layer` (int) and its value in `radius` (float). These parameters are necessary when planning to run `r_vs_res.py` but unnecessary otherwise.
+    - For example, if you want to study the relationship of the first layer of the IDEA vertex detector inner barrel layer 1 and the d0/z0 resolution, the `subsystem` will be `"VTXIB"`, the `layer` will be `1`, and the `radius` will be `11.7`, `13.7`, `15.7`, etc.
+  - Alternatively, if you will not be running `r_vs_res.py`, you can leave `layer = -1` and `radius = -1`. You can still take advantage of the `.json` file created by specifying what kind of analysis you are performing in `subsystem`. For example, `"long_barrel"`, `"short_barrel"`, etc.
