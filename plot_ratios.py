@@ -276,7 +276,7 @@ if __name__ == "__main__":
     # python plot_ratios.py --inputDir ---> args.inputDir == True
     parser.add_argument("-i", "--inputDir", type=str, default=detector_path, help="Directory where the detector plot folders are")
     parser.add_argument("-dis", "--displayParams", type=int, help="1: ONLY displays the parameters to choose from")
-    parser.add_argument("-def", "--defaultDetector", type=str, default="IDEA_base25", help="Detector that every detector will be compared to")
+    parser.add_argument("-def", "--defaultDetector", type=str, default="IDEA_inside_10", help="Detector that every detector will be compared to")
 
     args = parser.parse_args()
 
