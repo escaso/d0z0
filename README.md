@@ -1,5 +1,5 @@
 # d0 and z0 analysis
-The files in this directory provide the tools for a d0 and z0 analysis of particle guns in Delphes. Note that it will work for any kinf of detector (IDEA, CLD) as long as they have a Delphes card.
+The files in this directory provide the tools for a d0 and z0 analysis of particle guns in Delphes. Note that it will work for any kind of detector (IDEA, CLD) as long as they have a Delphes card.
 
 ## RUNNING THE ANALYSIS
 
