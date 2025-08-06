@@ -1,0 +1,5 @@
+npart 1
+theta_range 90.0,90.0
+mom_range 1.0,1.0
+pid_list 13
+nevents 100000

@@ -120,15 +120,31 @@ def plot_d0z0(input_dir, d0_dir, z0_dir, gun_analysis_directory, subsystem, laye
             pool.submit(helper_plot, sample_name)
 
 if __name__ == "__main__":
+        
+    #######################################
+    # OPTION #1: WILL NOT RUN r_vs_res.py #
+    #######################################
+    # optimization_config = "inside_pipe"
+    #
+    # for detector in ["IDEA_base25", "IDEA_inside_10","IDEA_inside_10_original_wmb"]:
+    #
+    #     subsystem = "inside_pipe"
+    #     layer = -1
+    #     radius = -1
+    #
+    #######################################
 
-    optimization_config = "inside_pipe"
-    # for detector, radius in zip(["IDEA_base25","IDEA_VTXIB_r1_117", "IDEA_VTXIB_r1_157", "IDEA_VTXIB_r1_177"], [13.7,11.7,15.7,17.7]):
 
-    for detector in ["IDEA_inside_10_original_wmb"]:
+    #########################################
+    # OPTION #2: WILL RUN r_vs_res.py AFTER #
+    #########################################
 
-        subsystem = "inside_pipe"
-        layer = -1
-        radius = -1
+    optimization_config = "VTXIB_r1"
+    
+    for detector, radius in zip(["IDEA_VTXIB_r1_117", "IDEA_base25", "IDEA_VTXIB_r1_157"], [11.7, 13.7, 15.7]):
+    
+        subsystem = "VTXIB"
+        layer = 1 # because r1 means first radius, aka the first layer of the vertex inner barrel
 
         detector_card = f"{d0z0_path}/delphes/cards/{detector}.tcl"
         detector_path = os.path.join(d0z0_path, optimization_config, detector)
@@ -142,15 +158,3 @@ if __name__ == "__main__":
         plot_d0z0(input_dir=input_path, d0_dir=gun_dirs.d0_plots, z0_dir=gun_dirs.z0_plots , gun_analysis_directory=gun_dirs.analysis,
                   subsystem=subsystem, layer=layer, radius=radius)
         
-
-
-
-
-    ########### INNER BARREL RADIUS 1 OPTIMIZATION ############
-
-    # subsystem = "VTXIB"
-    # layer = 1
-    # radii = 117,157,177
-
-    # for radius in radii:
-    #     detector = f"IDEA_{subsystem}_r{1}_{radius}"

@@ -1,0 +1,16 @@
+{
+    "subsystem": "short_inner_barrel_4_disks",
+    "layer": -1,
+    "radius": -1.0,
+    "npart": "1",
+    "theta_range": "60.0,60.0",
+    "mom_range": "5.0,5.0",
+    "pid_list": "13",
+    "nevents": "100000",
+    "rms": 295.4972043131204,
+    "rms_err": 0.6603953187668254,
+    "sigma": 5.112527854528983,
+    "sigma_err": 0.012414354529297622,
+    "res_quantile": 5.225747878788242,
+    "sigma_FWHM": 12.035071571147432
+}

@@ -181,6 +181,7 @@ def print_json_params():
 if __name__ == "__main__":
 
     d0z0_path = "/home/submit/escaso/summer2025/d0z0"
+    detector_path = os.path.join(d0z0_path, "VTXIB_r1")
 
     parser = argparse.ArgumentParser()
 
@@ -191,7 +192,7 @@ if __name__ == "__main__":
 
     # python plot_ratios.py            ---> args.inputDir == False
     # python plot_ratios.py --inputDir ---> args.inputDir == True
-    parser.add_argument("-i", "--inputDir", type=str, default=f"{d0z0_path}/VTXIB_r1", help="Directory where the detector plot folders are")
+    parser.add_argument("-i", "--inputDir", type=str, default=detector_path, help="Directory where the detector plot folders are")
     parser.add_argument("-dis", "--displayParams", type=int, help="1: ONLY displays the parameters to choose from")
     parser.add_argument("-def", "--defaultDetector", type=str, default="IDEA_base25", help="Detector that every detector will be compared to")
 

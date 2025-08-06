@@ -1,0 +1,16 @@
+{
+    "subsystem": "base25",
+    "layer": 1,
+    "radius": 13.7,
+    "npart": "1",
+    "theta_range": "20.0,20.0",
+    "mom_range": "1.0,1.0",
+    "pid_list": "13",
+    "nevents": "100000",
+    "rms": 290.397508265946,
+    "rms_err": 0.6490371059015865,
+    "sigma": 108.319608818051,
+    "sigma_err": 0.7029120350488043,
+    "res_quantile": 81.5347833333332,
+    "sigma_FWHM": 254.98819405533393
+}

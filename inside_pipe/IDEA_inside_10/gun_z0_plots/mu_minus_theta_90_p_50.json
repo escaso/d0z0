@@ -1,0 +1,16 @@
+{
+    "subsystem": "inside_pipe",
+    "layer": -1,
+    "radius": -1.0,
+    "npart": "1",
+    "theta_range": "90.0,90.0",
+    "mom_range": "50.0,50.0",
+    "pid_list": "13",
+    "nevents": "100000",
+    "rms": 1.889717559845059,
+    "rms_err": 0.0042255369220885785,
+    "sigma": 1.861305853596119,
+    "sigma_err": 0.004292622619513464,
+    "res_quantile": 1.8869423088384152,
+    "sigma_FWHM": 4.381579876182164
+}

@@ -1,0 +1,16 @@
+{
+    "subsystem": "VTXIB",
+    "layer": 1,
+    "radius": 11.7,
+    "npart": "1",
+    "theta_range": "50.0,50.0",
+    "mom_range": "1.0,1.0",
+    "pid_list": "13",
+    "nevents": "100000",
+    "rms": 279.123432585866,
+    "rms_err": 0.6238395981997868,
+    "sigma": 16.73337673188535,
+    "sigma_err": 0.04952054815935725,
+    "res_quantile": 17.183966666666045,
+    "sigma_FWHM": 39.3909612476365
+}
