@@ -1,5 +1,5 @@
 # d0 and z0 analysis
-The files in this directory provide the tools for a d0 and z0 analysis of particle guns in Delphes.
+The files in this directory provide the tools for a d0 and z0 analysis of particle guns in Delphes. Note that it will work for any kinf of detector (IDEA, CLD) as long as they have a Delphes card.
 
 ## RUNNING THE ANALYSIS
 
@@ -52,6 +52,7 @@ python r_vs_res.py -d IDEA_VTXIB_r1_117 IDEA_VTXIB_r1_157 -p res_quantile
   - Again, set `d0z0_path` to be the global path to the directory that was created by cloning this repository.
   - Also set `ceph_path` to be the global path to your ceph directory, or any other directory with sufficient storage for the files created. It is computationally cheaper to store these files rather than recreate them each time.
 - In `__main__`:
+  -  `optimization_config`: Set this to be the name of your analysis, e.g.: `"VTXIB_r1"`. A folder with this name will be created in your `d0z0` folder, and all the plots for that analysis will be stored inside.
   - If you are running different iterations of the same geometry configuration but changing only one parameter, you can set the name of the parameter in `subsystem` (string), the layer you are changing in `layer` (int) and its value in `radius` (float). These parameters are necessary when planning to run `r_vs_res.py` but unnecessary otherwise.
     - For example, if you want to study the relationship of the first layer of the IDEA vertex detector inner barrel layer 1 and the d0/z0 resolution, the `subsystem` will be `"VTXIB"`, the `layer` will be `1`, and the `radius` will be `11.7`, `13.7`, `15.7`, etc.
   - Alternatively, if you will not be running `r_vs_res.py`, you can leave `layer = -1` and `radius = -1`. You can still take advantage of the `.json` file created by specifying what kind of analysis you are performing in `subsystem`. For example, `"long_barrel"`, `"short_barrel"`, etc.
