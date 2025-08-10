@@ -17,7 +17,7 @@ python gun.py
 ```console
 python d0z0.py
 ```
-  - Note: Running each .tcl file analysis takes approxiamtely 5 minutes, so keep this in mind when running over several .tcl files at a time.
+  - Note: Running each .tcl file analysis takes approxiamtely 7 minutes, so keep this in mind when running over several .tcl files at a time.
 
 5. Now, `source` before running `plot_ratios.py` and/or `r_vs_res.py`.  
 ```console
