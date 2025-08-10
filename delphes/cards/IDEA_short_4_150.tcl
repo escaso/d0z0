@@ -224,7 +224,7 @@ module TrackCovariance TrackSmearing {
 
       # barrel  name       zmin   zmax   r        w (m)      X0        n_meas  th_up (rad) th_down (rad)    reso_up (m)   reso_down (m)  flag
 
-      1 PIPE -100 100 0.01 0.00235 0.35276 0 0 0 0 0 0
+      1 PIPE -100 100 0.01 0.00241 0.35276 0 0 0 0 0 0
       1 VTXLOW -0.1 0.1 0.0137 0.000309 0.0937 2 0 1.5708 3e-06 3e-06 1
       1 VTXLOW -0.1 0.1 0.0237 0.000309 0.0937 2 0 1.5708 3e-06 3e-06 1
       1 VTXLOW -0.1 0.1 0.0340 0.000309 0.0937 2 0 1.5708 3e-06 3e-06 1
