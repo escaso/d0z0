@@ -45,6 +45,11 @@ python r_vs_res.py -d IDEA_VTXIB_r1_117 IDEA_VTXIB_r1_157 -p res_quantile
   - `particle_id`: Select which particle you want to shoot. In this case, `13` is for anti-muon. You can find a pdg dictionary at the top of the file.
   - `nevents`: Number of events generated per theta value, per momentum value.
   - `npart`: Number of particles contained in each event.
+ 
+## `particleGun/env.sh`
+Changes to this file are especially important. 
+- In line 3, where you find the first change directory command (cd):
+  - Change the `install` path to be the path to the `install` folder in your `d0z0` folder.
       
 ## `d0z0.py`
 `d0z0.py` generates the detector response to these events, analyzes the results, and plots this analysis. To be adjusted:
